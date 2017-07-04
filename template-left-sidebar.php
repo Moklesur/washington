@@ -8,10 +8,10 @@
 get_header(); ?>
     <main class="ride-sidebar-page">
         <section>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <?php get_sidebar(); ?>
-                    <div class="col-md-9 col-sm-8 col-xs-12 padding-gap-1 padding-gap-4">
+                    <div class="col-md-9 col-sm-8 col-xs-12 <?php if(!is_front_page()) echo "margin-top-60"; ?>">
                         <?php
                         while ( have_posts() ) : the_post();
 

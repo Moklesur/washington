@@ -19,7 +19,7 @@
 function washington_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'washington_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
+		'default-text-color'     => '2c3e50',
 		'width'                  => 1920,
 		'height'                 => 250,
 		'flex-height'            => true,

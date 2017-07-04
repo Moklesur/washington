@@ -46,6 +46,11 @@ class Washington_Editor_Widget extends SiteOrigin_Widget {
 					'type'  => 'text',
 					'label' => __( 'Heading', 'washington' ),
 				),
+				'title_color' => array(
+					'type' => 'color',
+					'label' => __( 'Title Color', 'washington' ),
+					'default' => '#000'
+				),
 				'sub_title' => array(
 					'type' => 'text',
 					'label' => __( 'Sub Heading', 'washington' ),

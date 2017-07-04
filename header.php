@@ -37,11 +37,44 @@
 							<?php
 							if (get_theme_mod('custom_logo') && function_exists('the_custom_logo'))  :
 								the_custom_logo();
-							 else : ?>
+							else : ?>
 								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 								<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 							<?php endif; ?>
 						</div><!-- .site-branding -->
+						<?php if ( get_theme_mod('bottom_header_search') || class_exists( 'WooCommerce' ) ) : ?>
+							<div class="search-header pull-right">
+								<ul class="list-inline">
+									<?php if ( get_theme_mod('bottom_header_search') ) : ?>
+										<li>
+											<a class="search" href="#" data-toggle="modal" data-target="#search-pop"><i class="fa fa-search"></i></a>
+										</li>
+									<?php endif; ?>
+									<?php if ( class_exists( 'WooCommerce' ) ) : ?>
+										<li>
+											<div class="cart-icon">
+												<a class="cart-contents" href="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>"><i class="fa fa-shopping-basket"></i></a>
+											</div>
+										</li>
+									<?php endif; ?>
+								</ul>
+							</div>
+							<div class="modal fade search-pop" id="search-pop" tabindex="-1" role="dialog" aria-labelledby="request-a-quote">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-body">
+											<form role="search" method="get" class="search-fix position-relative" action="<?php echo home_url( '/' ); ?>">
+												<input type="search" class="search-field form-control"
+													   placeholder="<?php echo esc_attr( 'Search', 'washington' ) ?>"
+													   value="<?php echo get_search_query() ?>" name="s" />
+												<button type="submit" class="btn"><i class="fa fa-long-arrow-right fa-2x"></i></button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php endif ?>
 						<div class="navbar-header navbar-fix">
 							<button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle">
 								<span class="icon-bar"></span>
@@ -69,4 +102,5 @@
 			</div>
 		</div>
 	</header><!-- #masthead -->
+	<?php do_action('washington_title_breadcrumb'); ?>
 	<div id="content" class="site-content">

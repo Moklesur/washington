@@ -11,7 +11,7 @@ get_header(); ?>
         <section class="banner">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12 padding-gap-1 padding-gap-4">
+                    <div class="col-md-12 col-sm-12 col-xs-12 <?php if(!is_front_page()) echo "margin-top-60"; ?>">
                         <?php
                         while ( have_posts() ) : the_post();
 

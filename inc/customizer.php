@@ -24,7 +24,7 @@ function washington_customize_register( $wp_customize ) {
 		public $type = 'divider';
 		public $label = '';
 		public function render_content() { ?>
-			<h3 style="margin-top:15px; margin-bottom:10px;background:#f62459;padding:9px 5px;color:#fff;text-transform:uppercase; text-align: center;letter-spacing: 2px;"><?php echo esc_html( $this->label ); ?></h3>
+			<h3 style="margin-top:15px; margin-bottom:10px;background:#1bbc9b;padding:9px 5px;color:#fff;text-transform:uppercase; text-align: center;letter-spacing: 2px;"><?php echo esc_html( $this->label ); ?></h3>
 			<?php
 		}
 	}
@@ -125,6 +125,17 @@ function washington_customize_register( $wp_customize ) {
 			'settings' => 'washington_options[divider]'
 		) )
 	);
+	$wp_customize->add_setting( 'bottom_header_search', array(
+		'default'           => '',
+		'sanitize_callback' => 'washington_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'bottom_header_search', array(
+		'label' => __( 'Enable Search', 'washington' ),
+		'type' => 'checkbox',
+		'section' => 'title_tagline',
+		'priority'      => 40,
+		'settings' => 'bottom_header_search'
+	) );
 	$wp_customize->add_control( new washington_divider( $wp_customize, 'favicon', array(
 			'label' => __('favicon', 'washington'),
 			'priority'      => 40,
@@ -161,7 +172,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'body_font_name',
 		array(
-			'default' => 'Roboto:400,500',
+			'default' => 'Lato:400',
 			'sanitize_callback' => 'washington_sanitize_text',
 		)
 	);
@@ -177,7 +188,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'body_font_family',
 		array(
-			'default' => '\'Roboto\', sans-serif',
+			'default' => '\'Lato\', sans-serif',
 			'sanitize_callback' => 'washington_sanitize_text',
 		)
 	);
@@ -208,7 +219,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'heading_font_name',
 		array(
-			'default' => 'Raleway:300,500',
+			'default' => 'Lato:900',
 			'sanitize_callback' => 'washington_sanitize_text',
 		)
 	);
@@ -224,7 +235,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'heading_font_family',
 		array(
-			'default' => '\'Raleway\', sans-serif',
+			'default' => '\'Lato\', sans-serif',
 			'sanitize_callback' => 'washington_sanitize_text',
 		)
 	);
@@ -258,7 +269,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'body_text_color',
 		array(
-			'default'           => '#000',
+			'default'           => '#a1b1bc',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -277,7 +288,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'link_color',
 		array(
-			'default'           => '#000',
+			'default'           => '#a1b1bc',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -296,7 +307,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'link_hover_color',
 		array(
-			'default'           => '#f62459',
+			'default'           => '#1bbc9b',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -315,7 +326,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'heading_color',
 		array(
-			'default'           => '#000',
+			'default'           => '#2c3e50',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -367,7 +378,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'default_bg_color',
 		array(
-			'default'           => '#000',
+			'default'           => '#2c3e50',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -385,7 +396,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'default_border_color',
 		array(
-			'default'           => '#000',
+			'default'           => '#2c3e50',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -477,7 +488,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'primary_bg_color',
 		array(
-			'default'           => '#f62459',
+			'default'           => '#1bbc9b',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -495,7 +506,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'primary_border_color',
 		array(
-			'default'           => '#f62459',
+			'default'           => '#1bbc9b',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -605,7 +616,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'success_border_color',
 		array(
-			'default'           => '#003b64',
+			'default'           => '#ed1b2e',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
@@ -641,7 +652,7 @@ function washington_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'success_hover_bg_color',
 		array(
-			'default'           => '#0033a1',
+			'default'           => '#ed1b2e',
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);

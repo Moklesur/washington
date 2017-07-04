@@ -115,6 +115,11 @@ add_filter( 'siteorigin_widgets_active_widgets', 'washington_customize_so_widget
         'team',
         'editor',
         'camera-slider',
+        'icon-boxes',
+        'portfolio',
+        'testimonial',
+        'fact',
+        'newsletter',
         'cta'
     );
 

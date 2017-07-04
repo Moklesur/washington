@@ -24,6 +24,12 @@
     .post-items > .entry-thumb{
         margin: 0;
     }
+    .primary-menu .navbar-nav>li>a>span {
+        padding-top: 0;
+        padding-bottom: 0;
+        display: block;
+        border-top: 0;
+    }
     .primary-menu .collapse{
         float: none;
         overflow: hidden;
@@ -51,7 +57,7 @@
     .primary-menu .xs-angle-down {
         margin: -8px 0 0 0;
         padding: 4px 10px;
-        background: #ff8871;
+        background: #1bbc9b;
         float: right;
         color: #fff;
         font-size: 22px;
@@ -74,18 +80,25 @@
     .header-fixed{
         padding-bottom: 15px;
     }
+    .navbar-fix{
+        float: right;
+        margin-top: 20px;
+    }
     .navbar-fix button{
         margin: 12px 0 0 15px;
         border-radius: 0;
     }
+    .primary-menu  .navbar-collapse{
+        width: 100%;
+    }
     .navbar-default .navbar-toggle{
-        border-color: #ff8871;
+        border-color: #1bbc9b;
     }
     .navbar-default .navbar-toggle .icon-bar{
-        background-color: #ff8871;
+        background-color: #1bbc9b;
     }
     .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
-        background-color: #ff8871;
+        background-color: #1bbc9b;
     }
     .navbar-default .navbar-toggle:focus .icon-bar, .navbar-default .navbar-toggle:hover .icon-bar{
         background-color: #fff;
@@ -100,6 +113,9 @@
     }
     .camera-slider-inner h3{
         font-size: 30px;
+    }
+    .breadcrumb-fix,.breadcrumb-washington{
+        text-align: center;
     }
 }
 /********************************************************
@@ -120,6 +136,14 @@
     }
     .camera-slider-inner.text-right{
         padding-right: 15px;
+    }
+    .logo{
+        float: none !important;
+        text-align: center;
+    }
+    .search-header {
+        margin-left: 0;
+        float: left !important;
     }
 }
 /********************************************************

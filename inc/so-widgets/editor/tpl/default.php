@@ -9,14 +9,14 @@
 		</div>
 	<?php endif; ?>
 	<?php if ( ! empty( $instance['title'] ) ) : ?>
-		<h1 class="page-header"><?php echo esc_html( $instance['title'] ); ?></h1>
+		<h3 class="widget-title" style="<?php echo 'color: '.$instance['title_color']; ?>"><?php echo esc_html( $instance['title'] ); ?></h3>
 	<?php endif; ?>
 	<?php if ( ! empty( $instance['sub_title'] ) ) : ?>
 		<h4 class="widget-sub-heading"><?php echo esc_html( $instance['sub_title'] ); ?></h4>
 	<?php endif; ?>
 	<?php if ( ! empty( $instance['texteditor'] ) ) : ?>
 		<div class="editor-details">
-			<?php echo $instance['texteditor']; ?>
+			<?php echo wp_kses_post($instance['texteditor']); ?>
 		</div>
 	<?php endif; ?>
 	<?php if ( ! empty( $instance['button_text'] ) ) : ?>

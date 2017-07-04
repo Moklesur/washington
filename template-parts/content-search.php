@@ -18,6 +18,6 @@ $margin[] = 'search-wrap';
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php dhaka_entry_footer(); ?>
+		<?php washington_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

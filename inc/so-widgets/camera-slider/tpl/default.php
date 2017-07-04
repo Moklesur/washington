@@ -1,5 +1,5 @@
 <div class="camera-slider-widget widget-margin-fix">
-	<div class="dhaka-camera-slider">
+	<div class="washington-camera-slider">
 		<?php foreach( $instance['CameraSlider'] as $i => $CameraSlider ) :
 
 			if ( ! empty( $CameraSlider['CameraSlider_button_text'] ) ) :
@@ -30,9 +30,9 @@
 </div>
 <script>
 	jQuery(function(){
-		if (jQuery('.dhaka-camera-slider').length) {
-			jQuery('.dhaka-camera-slider').camera({
-				height: '50%',
+		if (jQuery('.washington-camera-slider').length) {
+			jQuery('.washington-camera-slider').camera({
+				height: '44%',
 				loader: 'bar',
 				margin:'',
 				alignment: 'center',
@@ -40,7 +40,7 @@
 				thumbnails: false,
 				playPause: false,
 				loaderColor: '#fff',
-				loaderBgColor: '#f93759',
+				loaderBgColor: '#1bbc9b',
 				hover: true,
 				opacityOnGrid: true,
 				pagination: false

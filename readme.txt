@@ -35,10 +35,6 @@ Washington is responsive theme which is designed subtle and prevailing. Ideal fo
   License: GPL-2.0+
   License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-* Normalize
-  http://necolas.github.io/normalize.css/,
- (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
-
 * Bootstrap
   Bootstrap v3.3.7 (http://getbootstrap.com)
   Copyright 2011-2016 Twitter, Inc.
@@ -67,7 +63,4 @@ Washington is responsive theme which is designed subtle and prevailing. Ideal fo
   http://glyphicons.com/license/
 
 * Image (used in screenshot)
-  https://www.pexels.com/photo/woman-in-blue-and-white-polka-dots-button-up-shirt-wearing-black-hat-standing-62456/
-
-
-
+  https://unsplash.com/photos/Ri17WyRuclo

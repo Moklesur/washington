@@ -70,7 +70,6 @@ function washington_setup() {
 }
 endif;
 add_action( 'after_setup_theme', 'washington_setup' );
-
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -82,7 +81,6 @@ function washington_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'washington_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'washington_content_width', 0 );
-
 /**
  * Register widget area.
  *
@@ -99,7 +97,7 @@ function washington_widgets_init() {
 		'after_title'   => '</h3>',
 	) );
 	//Footer widget areas
-	for ($i=1; $i<=3; $i++) {
+	for ($i=1; $i<=4; $i++) {
 		register_sidebar( array(
 			'name'          => __( 'Footer ', 'washington' ) . $i,
 			'id'            => 'footer-widget-' . $i,
@@ -112,7 +110,6 @@ function washington_widgets_init() {
 	}
 }
 add_action( 'widgets_init', 'washington_widgets_init' );
-
 /**
  * Enqueue scripts and styles.
  */
@@ -120,12 +117,12 @@ function washington_scripts() {
 	if ( get_theme_mod('body_font_name') !='' ) {
 		wp_enqueue_style( 'washington-body-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('body_font_name')) );
 	} else {
-		wp_enqueue_style( 'washington-body-fonts', '//fonts.googleapis.com/css?family=Roboto:400,500');
+		wp_enqueue_style( 'washington-body-fonts', '//fonts.googleapis.com/css?family=Lato:400');
 	}
 	if ( get_theme_mod('heading_font_name') !='' ) {
 		wp_enqueue_style( 'washington-heading-fonts', '//fonts.googleapis.com/css?family=' . esc_attr(get_theme_mod('heading_font_name')) );
 	} else {
-		wp_enqueue_style( 'washington-heading-fonts', '//fonts.googleapis.com/css?family=Raleway:300,500');
+		wp_enqueue_style( 'washington-heading-fonts', '//fonts.googleapis.com/css?family=Lato:900');
 	}
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.7.0' );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '3.3.7' );
@@ -144,19 +141,17 @@ function washington_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'washington_scripts' );
-
 /**
  * Custom Logo
  */
 function washington_custom_logo() {
 	$defaults = array(
-		'height'      => 31,
-		'width'       => 125
+		'height'      => 53,
+		'width'       => 250
 	);
 	add_theme_support( 'custom-logo', $defaults );
 }
 add_action( 'after_setup_theme', 'washington_custom_logo' );
-
 /**
  * woocommerce support
  */
@@ -164,7 +159,6 @@ add_action( 'after_setup_theme', 'washington_woocommerce_support' );
 function washington_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
 }
-
 /**
  * Registers an editor stylesheet for the theme.
  */
@@ -172,56 +166,50 @@ function washington_theme_add_editor_styles() {
 	add_editor_style( 'custom-editor-style.css' );
 }
 add_action( 'admin_init', 'washington_theme_add_editor_styles' );
-
 /**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
-
 /**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
-
 /**
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
-
 /**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
 /**
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
 /**
  * Load WP Bootstrap Nav Walker file.
  */
 if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
 	require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 }
-
+/**
+ * Breadcrumbs
+ */
+require get_template_directory() . '/inc/breadcrumb.php';
 /**
  * Load Site Origin Bundle Hooks.
  */
 if ( class_exists( 'SiteOrigin_Widget' ) ) {
 	require get_template_directory() . '/inc/so-widgets/so-widgets.php';
 }
-
 /**
  * Typography
  */
 require get_template_directory() . '/inc/typography.php';
-
 /**
  * Theme Functions
  */
 require get_template_directory() . '/inc/theme-functions.php';
-
 /**
  * The excerpt length
  */
@@ -230,7 +218,15 @@ function washington_excerpt_length( $blog_excerpt ) {
 	return $excerpt;
 }
 add_filter( 'excerpt_length', 'washington_excerpt_length', 999 );
-
+/**
+ * Shop & Single Product Page (Removed Sidebar)
+ */
+function washington_remove_sidebar_product_pages() {
+	if (is_product() || is_shop()) {
+		remove_action('woocommerce_sidebar','woocommerce_get_sidebar',10);
+	}
+}
+add_action( 'wp', 'washington_remove_sidebar_product_pages' );
 /**
  * Load TGM Plugin activation.
  */
@@ -252,6 +248,11 @@ function washington_active_plugins() {
 		array(
 			'name'      => 'Page Builder by SiteOrigin',
 			'slug'      => 'siteorigin-panels',
+			'required'  => false,
+		),
+		array(
+			'name'      => 'Recent Posts Widget With Thumbnails by Stehle Internet',
+			'slug'      => 'recent-posts-widget-with-thumbnails',
 			'required'  => false,
 		),
 		array(

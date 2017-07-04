@@ -17,7 +17,7 @@ function washington_breadcrumbs( $args = array() ) {
     $defaults  = array(
         'separator_icon'      => '<i class="fa fa-angle-right"></i>',
         'breadcrumbs_id'      => 'breadcrumb',
-        'breadcrumbs_classes' => 'breadcrumb-trail breadcrumb margin-null',
+        'breadcrumbs_classes' => '',
         'home_title'          => esc_html__( 'Home', 'washington' )
     );
     $args      = apply_filters( 'washington_breadcrumbs_args', wp_parse_args( $args, $defaults ) );

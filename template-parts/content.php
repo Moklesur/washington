@@ -16,7 +16,7 @@ endif;
 	<div class="post-items">
 		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="entry-thumb">
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'Permalink to: ', 'after' => '' ) ); ?>"><?php the_post_thumbnail('full'); ?></a>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'Permalink to: ', 'after' => '' ) ); ?>"><?php the_post_thumbnail('full'); ?><span><i class="fa fa-expand fa-2x" aria-hidden="true"></i></span></a>
 		</div>
 		<?php endif; ?>
 		<header class="entry-header">
@@ -40,7 +40,7 @@ endif;
 				<?php the_content(); ?>
 			<?php else : ?>
 				<?php the_excerpt(); ?>
-				<a href="<?php the_permalink(); ?>" class="read-more text-capitalize"><?php esc_html_e( 'read more', 'washington' )?></a>
+				<a href="<?php the_permalink(); ?>" class="read-more btn btn-primary text-capitalize"><?php esc_html_e( 'read more', 'washington' )?></a>
 			<?php endif; ?>
 		</div><!-- .entry-content -->
 		<?php if (  !is_home() && !is_archive()  ) : ?>

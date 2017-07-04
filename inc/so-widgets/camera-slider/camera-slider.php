@@ -11,7 +11,7 @@ class Washington_CameraSlider_Widget extends SiteOrigin_Widget {
 
 		parent::__construct(
 			'washington-camera-slider-widget',
-			__( 'Dhaka: Camera Slider', 'washington' ),
+			__( 'Washington: Camera Slider', 'washington' ),
 			array(
 				'description' => __( 'Camera Slider Widget', 'washington' ),
 			),
@@ -42,7 +42,7 @@ class Washington_CameraSlider_Widget extends SiteOrigin_Widget {
 							'type' => 'select',
 							'label' => __( 'Position', 'washington' ),
 							'description' => __('Float Position (like whole content will be show center or left or right)','washington'),
-							'default' => '0 auto',
+							'default' => 'auto auto auto 0',
 							'options' => array(
 								'auto auto auto 0' => __( 'Left', 'washington' ),
 								'0 auto' => __( 'Center', 'washington' ),
